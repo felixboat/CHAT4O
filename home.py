@@ -47,7 +47,7 @@ if st.sidebar.button("New Chat Session", on_click=restart):
     st.session_state.messages = []
     st.session_state["messages"] = [{"role": "assistant", "content": f"Hello {user_chat}! How can I help you?"}]
 
-if st.sidebar.button("Download Conversation"):
+if st.sidebar.button("Download Current Session"):
     current_date = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
     txt_name = "Conversation" + "_" + current_date + ".txt"
     chat_log_str = "\n".join([f"{m['role']}: {m['content']}" for m in st.session_state.messages])

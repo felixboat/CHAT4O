@@ -31,7 +31,7 @@ def check_password():
             # print(user_chat)
             st.session_state["api_key"] = get_api_key(st.session_state["user_chat"])
             # print(api_key)
-            del st.session_state["password"]  # Don't store the username or password.
+            # del st.session_state["password"]  # Don't store the username or password.
             # del st.session_state["username"]
             return st.session_state["user_chat"], st.session_state["api_key"]
         else:
@@ -42,9 +42,13 @@ def check_password():
         return True
 
     # Show inputs for username + password.
-    login_form()
-    if "password_correct" in st.session_state:
-        st.error("😕 User not known or password incorrect")
+    # login_form()
+    # if "password_correct" in st.session_state:
+    #     st.error("😕 User not known or password incorrect")
+    # return False
+    if "user_chat" not in st.session_state:
+        login_form()
+        if "password_correct" in st.session_state:
+            st.error("😕 User not known or password incorrect")
     return False
-
 

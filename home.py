@@ -16,8 +16,10 @@ if not usrauth.check_password():
 
 # Setup variables
 user_chat = string.capwords(st.session_state['user_chat'])
-api_key = st.session_state['api_key']
-client = OpenAI()
+usr_api_key = st.session_state['api_key']
+OPENAI_API_KEY = usr_api_key
+client = OpenAI(api_key=OPENAI_API_KEY)
+
 MODEL_NAME = ['gpt-3.5-turbo', 'gpt-3.5-turbo-1106', 'gpt-4', 'gpt-4-0613', 'gpt-4-1106-preview']
 
 # Main Streamlit app starts here
